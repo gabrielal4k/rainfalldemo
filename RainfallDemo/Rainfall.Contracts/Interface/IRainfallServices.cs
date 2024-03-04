@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rainfall.Contracts.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Rainfall.Contracts.Interface
 {
     public interface IRainfallServices
     {
+        Task<ResultResponse> RetrieveRainfallData(int stationID);
     }
 }

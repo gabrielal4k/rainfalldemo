@@ -1,4 +1,5 @@
 ﻿using Rainfall.Contracts.DTO;
+using System.Runtime.CompilerServices;
 
 namespace Rainfall.Api
 {
@@ -22,5 +23,7 @@ namespace Rainfall.Api
 
             return CreateResponse("Ok", false, 200);
         }
+
+      
     }
 }

@@ -10,25 +10,23 @@ namespace Rainfall.Api.Controllers
     {
         Guard _guard = new Guard();
         IRainfallServices _service;
+
         public RainfallController(IRainfallServices src)
         {
             _service = src;
         }
 
         [HttpGet, Route("/rainfall/{stationId}/station"), AllowAnonymous]
-        public ActionResult<ResultResponse> GetRainfall_By_StationID(int stationId)
+        public async Task<ActionResult<ResultResponse>> GetRainfall_By_StationID(int stationId)
         {
             try
             {
                 var response =  _guard.CheckStationID(stationId);
-                if(response.Error)
-                {
 
-                }
-                else
-                {
-                  return ErrorPasssHandler(response);
-                }
+                if(response.Error)
+                    return ErrorPasssHandler(response);
+
+                response = await _service.RetrieveRainfallData(stationId);
 
                 return response;
             }
@@ -40,7 +38,7 @@ namespace Rainfall.Api.Controllers
 
         private ActionResult ErrorPasssHandler(ResultResponse response)
         {
-            return default;
+            return StatusCode(500);
         }
              
     }

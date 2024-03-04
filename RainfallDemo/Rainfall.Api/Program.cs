@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.OpenApi.Models;
 using Rainfall.Contracts.Interface;
 using Rainfall.ReferenceAPI;
@@ -19,7 +20,8 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient("rainfallapi", client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration.GetSection("RainfallSetting:url").Value!);
+    client.BaseAddress = new Uri(UriHelper.Encode(new Uri(builder.Configuration.GetSection("RainfallSetting:url").Value!)));
+    //client.BaseAddress = new Uri(builder.Configuration.GetSection("RainfallSetting:url").Value!);
 });
 
 builder.Services.AddScoped<IRainfallApiLib, RainfallApiLib>();

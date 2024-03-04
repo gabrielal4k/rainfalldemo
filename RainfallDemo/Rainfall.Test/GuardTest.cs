@@ -28,7 +28,7 @@ namespace Rainfall.Test
 
                 Assert.Equal(200, state);
             }
-            catch (Exception ex) { throw; }
+            catch (Exception) { throw; }
         }
 
         [Theory]
@@ -46,7 +46,7 @@ namespace Rainfall.Test
 
                 Assert.Equal(400, state);
             }
-            catch (Exception ex) { throw; }
+            catch (Exception) { throw; }
         }
     }
 }
