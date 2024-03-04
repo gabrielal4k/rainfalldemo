@@ -8,8 +8,10 @@ namespace Rainfall.Contracts.DTO
 {
     public class EnvirontmentDTO
     {
+        //this data transfer object are for containing the return values from api
+
         public string context { get; set; }
         public EnvironmentMetaDTO meta { get; set; }
-        public List<EnvironmentMetaDTO> items { get; set; }
+        public List<EnvironmentItemDTO> items { get; set; }
     }
 }

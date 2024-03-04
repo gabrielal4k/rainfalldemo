@@ -9,7 +9,8 @@ namespace Rainfall.Services.Class
 {
     public static class Ensure
     {
-        //raw check?
+        //checker for empty values
+
         public static void NotNullOrWhiteSpace(string? value, string? msg = null, [CallerArgumentExpression("value")] string? paramName = null)
         {
             if (string.IsNullOrEmpty(value))

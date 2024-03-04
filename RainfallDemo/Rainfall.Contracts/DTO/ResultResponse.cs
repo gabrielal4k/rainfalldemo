@@ -8,6 +8,8 @@ namespace Rainfall.Contracts.DTO
 {
     public class ResultResponse
     {
+        //i created this class a general convienient container for passing data throughout the app.
+
         public ResultResponse()
         {
             Error = false;

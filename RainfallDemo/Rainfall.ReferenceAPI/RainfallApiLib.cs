@@ -15,7 +15,9 @@ namespace Rainfall.ReferenceAPI
 
         private readonly IHttpClientFactory apiClientFactory;
         private HttpResponseMessage? _httpResponseMessage;
-        string _root = "http://environment.data.gov.uk/flood-monitoring";
+        
+        //initialize the httpclients
+        //i put all api request services on this layer
 
         public RainfallApiLib(IHttpClientFactory srcFactory)
         {
@@ -24,12 +26,8 @@ namespace Rainfall.ReferenceAPI
 
         private HttpClient ApiClient(string server = "rainfallapi")
         {
-            // problem with readiing the base uri, it does not read full address
+            //creates httpclient based on the named httpclient on DI
             return apiClientFactory.CreateClient(server);
-        }
-        private HttpClient ApiDefaultClient()
-        {
-            return apiClientFactory.CreateClient();
         }
 
         private ResultResponse CreateResponse(string statusText, bool error = false, int responseState = 200, object data = null)
@@ -45,6 +43,8 @@ namespace Rainfall.ReferenceAPI
 
         private ResultResponse CatchResponseMessage(HttpResponseMessage httpResponse)
         {
+            //get and set the http response of the requested api, transfering the data to the dato transfer objects and defining its success or failed status.
+
             if (httpResponse is null)
                 throw new ArgumentNullException(nameof(httpResponse));
 
@@ -76,22 +76,18 @@ namespace Rainfall.ReferenceAPI
             
             if (!response.Error)
             {
-                var res = GetContentDataFromResultResponse<EnvirontmentDTO>(response);
+                response.Data = GetContentDataFromResultResponse<EnvirontmentDTO>(response);
             }
 
             return response;
         }
         #endregion
 
-        protected T GetContentData<T>(HttpContent response)
-        {
-            var result = JsonConvert.DeserializeObject<T>(response.ReadAsStringAsync().Result);
-
-            return result ?? throw new ArgumentNullException(nameof(result));
-        }
-
         protected T GetContentDataFromResultResponse<T>(ResultResponse response)
         {
+            //generic converter of data for convienience
+            //catches the data content transfered then removing the @ character as it is not a compatible naming for a class properties, if not it may not be read during conversion.
+
             var content = (HttpContent)response.Data;
             string cleanJSON = content.ReadAsStringAsync().Result.Replace("@", string.Empty);
 
@@ -106,6 +102,7 @@ namespace Rainfall.ReferenceAPI
         {
             try
             {
+                //http get call request to the api
                 _httpResponseMessage = await ApiClient().GetAsync(requestURI);
                 var response = CatchResponseMessage(_httpResponseMessage);
 

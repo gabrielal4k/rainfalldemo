@@ -18,6 +18,8 @@ namespace Rainfall.Api
 
         public ResultResponse CheckStationID(int stationID)
         {
+            //a check method to check if the station ID is within the range of acceptable value.
+
             if (stationID < 1 || stationID > 100)
                 return CreateResponse("Invalid request", true, 400);
 

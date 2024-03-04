@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Rainfall.Contracts.DTO
 {
-    internal class RainfallReadingDTO
+    public class RainfallReadingDTO
     {
+        //this class is for the return data for success
+
         public DateTime dateMeasured { get; set; }
         public decimal amountMeasured { get; set; }
     }

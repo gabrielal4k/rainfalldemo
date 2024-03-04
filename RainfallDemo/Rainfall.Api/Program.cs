@@ -12,18 +12,19 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSwaggerGen(options =>
 
+builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo { Title ="Rainfall API", Version = "1.0.0" })
 );
 
 builder.Services.AddHttpClient();
+//creates a named httpclient for the api
 builder.Services.AddHttpClient("rainfallapi", client =>
 {
     client.BaseAddress = new Uri(UriHelper.Encode(new Uri(builder.Configuration.GetSection("RainfallSetting:url").Value!)));
-    //client.BaseAddress = new Uri(builder.Configuration.GetSection("RainfallSetting:url").Value!);
 });
 
+//declaring DI 
 builder.Services.AddScoped<IRainfallApiLib, RainfallApiLib>();
 builder.Services.AddScoped<IRainfallServices, RainfallServices>();
 
