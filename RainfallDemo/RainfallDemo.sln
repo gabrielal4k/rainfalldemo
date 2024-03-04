@@ -5,11 +5,13 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rainfall.Api", "Rainfall.Api\Rainfall.Api.csproj", "{E14F543E-89CE-4423-A543-F4F65D3D72B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainfall.Contracts", "Rainfall.Contracts\Rainfall.Contracts.csproj", "{52D940F6-9B49-4959-8F0F-0D76EDBA4614}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rainfall.Contracts", "Rainfall.Contracts\Rainfall.Contracts.csproj", "{52D940F6-9B49-4959-8F0F-0D76EDBA4614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainfall.Services", "Rainfall.Services\Rainfall.Services.csproj", "{EC72E466-E65D-4D0C-AA73-5037AE9E3FC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rainfall.Services", "Rainfall.Services\Rainfall.Services.csproj", "{EC72E466-E65D-4D0C-AA73-5037AE9E3FC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainfall.ReferenceAPI", "Rainfall.ReferenceAPI\Rainfall.ReferenceAPI.csproj", "{71D9F087-C54A-4222-A122-2FB40112B8DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rainfall.ReferenceAPI", "Rainfall.ReferenceAPI\Rainfall.ReferenceAPI.csproj", "{71D9F087-C54A-4222-A122-2FB40112B8DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainfall.Test", "Rainfall.Test\Rainfall.Test.csproj", "{3219417B-AFCA-49F4-87F3-6F34B91C651B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{71D9F087-C54A-4222-A122-2FB40112B8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71D9F087-C54A-4222-A122-2FB40112B8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71D9F087-C54A-4222-A122-2FB40112B8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3219417B-AFCA-49F4-87F3-6F34B91C651B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3219417B-AFCA-49F4-87F3-6F34B91C651B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3219417B-AFCA-49F4-87F3-6F34B91C651B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3219417B-AFCA-49F4-87F3-6F34B91C651B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
