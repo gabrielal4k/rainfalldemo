@@ -5,7 +5,7 @@ Description
 
 - A web api project that can make request for the latest rainfall data using the station id.
 
-- I have used .NET MVC with Swagger, as for the Models, for convience sake I have created Rainfall.Contracts project that contains them instead.
+- I have used .NET MVC Controller based api with Swagger, as for the Models, for convience sake I have created Rainfall.Contracts project that contains them instead.
 
 Dependencies
 
